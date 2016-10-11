@@ -1,7 +1,7 @@
 {
   "name": "highlight-syntax",
   "version": "1.0.0",
-  "description": "",
+  "description": "highlight source code syntax with html",
   "main": "index.js",
   "bin": {
     "highlight-syntax": "bin/cmd.js"
@@ -31,5 +31,13 @@
     "css": "cat */dark.css > dark.css && cat */light.css > light.css"
   },
   "author": "substack",
-  "license": "BSD"
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/substack/highlight-syntax.git"
+  },
+  "bugs": {
+    "url": "https://github.com/substack/highlight-syntax/issues"
+  },
+  "homepage": "https://github.com/substack/highlight-syntax#readme"
 }
