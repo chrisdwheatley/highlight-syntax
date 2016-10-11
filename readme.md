@@ -22,6 +22,15 @@ var js = require('highlight-syntax/js')
 var sh = require('highlight-syntax/sh')
 ```
 
+The css files in this distribution are:
+
+* highlight-syntax/dark.css - combined dark themes for all languages
+* highlight-syntax/light.css - combined linght themes for all languages
+* highlight-syntax/js/dark.css - javascript dark theme
+* highlight-syntax/js/light.css - javascript light theme
+* highlight-syntax/sh/dark.css - bash dark theme
+* highlight-syntax/sh/light.css - bash light theme
+
 ## var html = highlight(lang, src)
 
 Turn a string of code `src` written in `lang` to a syntax-highlighted string of
