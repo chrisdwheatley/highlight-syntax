@@ -1,0 +1,32 @@
+{
+  "name": "highlight-syntax",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "highlight-syntax": "bin/cmd.js"
+  },
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {
+    "concat-stream": "^1.5.2",
+    "highlight-bash-syntax": "^1.0.0",
+    "highlight-javascript-syntax": "^1.0.3",
+    "minimist": "^1.2.0",
+    "outpipe": "^1.1.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "highlight",
+    "syntax",
+    "javascript",
+    "js",
+    "bash",
+    "shell",
+    "sh"
+  ],
+  "author": "substack",
+  "license": "BSD"
+}
