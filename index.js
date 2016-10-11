@@ -4,10 +4,8 @@ var normalize = require('./normalize-lang.js')
 
 module.exports = function (lang, src) {
   lang = normalize(lang)
-  try {
-    if (/^(js|javascript)$/i.test(lang)) return js(src)
-    else if (/^(sh|bash)/.test(lang)) return sh(src)
-  } catch (err) {}
+  if (/^(js|javascript)$/i.test(lang)) return js(src)
+  else if (/^(sh|bash)/.test(lang)) return sh(src)
   return esc(src)
 }
 
