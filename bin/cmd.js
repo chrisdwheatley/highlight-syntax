@@ -10,6 +10,13 @@ var argv = minimist(process.argv.slice(2), {
   default: { outfile: '-' },
   boolean: ['help']
 })
+if (argv.help) {
+  fs.readFile(path.join(__dirname,'usage.txt'), 'utf8', function (err, src) {
+    if (err) exit(err)
+    else console.log(src)
+  })
+  return
+}
 
 var infiles = [].concat(argv.infile, argv._).filter(Boolean)
 var inputs = infiles.map(function (x) {

@@ -1,0 +1,5 @@
+highlight-syntax FILES... {OPTIONS}
+  -o --outfile  Write output to a file. Default: - (stdout)
+  -l --lang     Set a language explicitly for stdin input.
+  -t --theme    Include an inline css theme. Example: dark
+

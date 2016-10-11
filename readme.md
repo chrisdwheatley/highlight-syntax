@@ -44,10 +44,28 @@ Turn a string of javascript code `src` to a syntax-highlighted string of html.
 
 Turn a string of shell code `src` to a syntax-highlighted string of html.
 
+# usage
+
+```
+highlight-syntax FILES... {OPTIONS}
+  -o --outfile  Write output to a file. Default: - (stdout)
+  -l --lang     Set a language explicitly for stdin input.
+  -t --theme    Include an inline css theme. Example: dark
+
+```
+
 # install
+
+To get the library:
 
 ```
 npm install highlight-syntax
+```
+
+To get the command:
+
+```
+npm install -g highlight-syntax
 ```
 
 # license
