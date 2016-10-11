@@ -22,10 +22,14 @@ console.log(highlight(src, { lang: process.argv[2] }))
 
 ## example with marked
 
-You can pass this module to [marked][3] to highlight code in a markdown file:
+kou can pass this module to [marked][3] to highlight code in a markdown file:
 
 ``` js
-var marked = require(
+var highlight = require('highlight-syntax')
+var marked = require('marked')
+var fs = require('fs')
+var src = fs.readFileSync('readme.md','utf8')
+console.log(marked(src, { highlight: highlight }))
 ```
 
 [3]: https://npmjs.com/package/marked

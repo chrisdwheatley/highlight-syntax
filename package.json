@@ -18,7 +18,8 @@
     "outpipe": "^1.1.1"
   },
   "devDependencies": {
-    "marked": "^0.3.6"
+    "marked": "^0.3.6",
+    "tape": "^4.6.2"
   },
   "keywords": [
     "highlight",
@@ -30,7 +31,8 @@
     "sh"
   ],
   "scripts": {
-    "css": "cat */dark.css > dark.css && cat */light.css > light.css"
+    "css": "cat */dark.css > dark.css && cat */light.css > light.css",
+    "test": "tape test/*.js"
   },
   "author": "substack",
   "license": "BSD",
