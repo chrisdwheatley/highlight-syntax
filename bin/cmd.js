@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 var highlight = require('../')
 var concat = require('concat-stream')
+var normalize = require('../normalize-lang.js')
 var fs = require('fs')
 var path = require('path')
 var minimist = require('minimist')
 var argv = minimist(process.argv.slice(2), {
-  alias: { h: 'help', o: 'outfile', l: 'lang' },
+  alias: { h: 'help', o: 'outfile', l: 'lang', t: 'theme' },
   default: { outfile: '-' },
   boolean: ['help']
 })
@@ -15,7 +16,7 @@ var inputs = infiles.map(function (x) {
   return x === '-' ? process.stdin : fs.createReadStream(x)
 })
 var langs = infiles.map(function (x) {
-  var ext = path.extname(x).replace(/^\./,'')
+  var ext = normalize(path.extname(x))
   return ext === '' ? 'sh' : ext
 })
 if (inputs.length === 0) {
@@ -26,7 +27,24 @@ var output = argv.outfile === '-'
   ? process.stdout
   : fs.createWriteStream(argv.outfile)
 
-;(function next (i) {
+if (argv.theme) {
+  var files = {}
+  langs.forEach(function (lang) {
+    files[path.join(__dirname,'..',lang,argv.theme+'.css')] = true
+  })
+  var pending = 1
+  Object.keys(files).forEach(function (file) {
+    pending++
+    fs.readFile(file, 'utf8', function (err, src) {
+      if (err) return exit(err)
+      output.write('<style>\n'+src+'\n</style>\n')
+      if (--pending === 0) next(0)
+    })
+  })
+  if (--pending === 0) next(0)
+} else next(0)
+
+function next (i) {
   if (i >= inputs.length) {
     if (argv.outfile === '-') output.write('\n')
     else output.end('\n')
@@ -37,4 +55,9 @@ var output = argv.outfile === '-'
       + highlight(langs[i],src) + '</pre>\n')
     next(i+1)
   }))
-})(0)
+}
+
+function exit (err) {
+  console.error(err)
+  process.exit(1)
+}
