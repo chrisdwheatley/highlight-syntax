@@ -17,8 +17,18 @@ highlight source code syntax with html
 var highlight = require('highlight-syntax')
 var fs = require('fs')
 var src = fs.readFileSync(process.argv[3],'utf8')
-console.log(highlight(process.argv[2],src))
+console.log(highlight(src, { lang: process.argv[2] }))
 ```
+
+## example with marked
+
+You can pass this module to [marked][3] to highlight code in a markdown file:
+
+``` js
+var marked = require(
+```
+
+[3]: https://npmjs.com/package/marked
 
 # api
 
@@ -37,10 +47,14 @@ The css files in this distribution are:
 * highlight-syntax/sh/dark.css - bash dark theme
 * highlight-syntax/sh/light.css - bash light theme
 
-## var html = highlight(lang, src)
+## var html = highlight(src, opts)
 
-Turn a string of code `src` written in `lang` to a syntax-highlighted string of
-html.
+Turn a string of code `src` written in `opts.lang` to a syntax-highlighted
+string of html. If `opts` is a string, it is interpreted as the `opts.lang`.
+
+* `opts.lang` - string language name or file extension
+* `opts.throw` - when `true`, throw on syntax errors. Otherwise return an
+un-highlighted but escaped code string.
 
 ## var html = js(src)
 
@@ -64,13 +78,13 @@ highlight-syntax FILES... {OPTIONS}
 
 To get the library:
 
-```
+``` sh
 npm install highlight-syntax
 ```
 
 To get the command:
 
-```
+``` sh
 npm install -g highlight-syntax
 ```
 

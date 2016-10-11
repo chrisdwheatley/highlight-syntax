@@ -1,0 +1,5 @@
+var highlight = require('../')
+var marked = require('marked')
+var fs = require('fs')
+var src = fs.readFileSync(__dirname+'/../readme.md','utf8')
+console.log(marked(src, { highlight: highlight }))
