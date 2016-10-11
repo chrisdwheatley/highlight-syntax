@@ -7,6 +7,12 @@ highlight source code syntax with html
 
 # example
 
+* [example output with dark theme][1]
+* [example output with light theme][2]
+
+[1]: https://substack.neocities.org/highlight-syntax/dark.html
+[2]: https://substack.neocities.org/highlight-syntax/light.html
+
 ``` js
 var highlight = require('highlight-syntax')
 var fs = require('fs')
