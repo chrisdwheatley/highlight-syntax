@@ -27,7 +27,7 @@ module.exports = function (src, opts) {
       else if (kw1[t.source]) c += ' kw1 kw-' + xclass(t.source)
       else if (kw2[t.source]) c += ' kw2 kw-' + xclass(t.source)
     }
-    return '<span class="'+ c +'">' + esc(t.source) + '</span>'
+    return '<span class="' + c + '">' + esc(t.source) + '</span>'
   }).join('')
 }
 
