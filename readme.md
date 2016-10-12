@@ -22,7 +22,7 @@ console.log(highlight(src, { lang: process.argv[2] }))
 
 ## example with marked
 
-kou can pass this module to [marked][3] to highlight code in a markdown file:
+You can pass this module to [marked][3] to highlight code in a markdown file:
 
 ``` js
 var highlight = require('highlight-syntax')
