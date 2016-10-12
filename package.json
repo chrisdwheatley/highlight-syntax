@@ -1,6 +1,6 @@
 {
   "name": "highlight-syntax",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "highlight source code syntax with html",
   "main": "index.js",
   "bin": {
