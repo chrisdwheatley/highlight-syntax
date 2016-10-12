@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 var highlight = require('../')
+var style = require('../style.js')
 var concat = require('concat-stream')
 var normalize = require('../normalize-lang.js')
 var fs = require('fs')
@@ -35,20 +36,11 @@ var output = argv.outfile === '-'
   : fs.createWriteStream(argv.outfile)
 
 if (argv.theme) {
-  var files = {}
-  langs.forEach(function (lang) {
-    files[path.join(__dirname,'..',lang,argv.theme+'.css')] = true
+  style({ langs: langs, theme: argv.theme }, function (err, css) {
+    if (err) return exit(err)
+    output.write('<style>\n'+css+'\n</style>\n')
+    next(0)
   })
-  var pending = 1
-  Object.keys(files).forEach(function (file) {
-    pending++
-    fs.readFile(file, 'utf8', function (err, src) {
-      if (err) return exit(err)
-      output.write('<style>\n'+src+'\n</style>\n')
-      if (--pending === 0) next(0)
-    })
-  })
-  if (--pending === 0) next(0)
 } else next(0)
 
 function next (i) {
