@@ -1,0 +1,28 @@
+{
+  "kw0": ["asm","auto","break","case","continue","default","do","else",
+    "for","goto","if","return","sizeof","switch","typeof","while"],
+  "kw1":["char","const","double","enum","extern","float","inline","int","long",
+    "register","short","signed","static","struct","typedef","union","unsigned",
+    "void","volatile","size_t","time_t","uint8_t","uint16_t","uint32_t",
+    "uint64_t","int8_t","int16_t","int32_t","int64_t"],
+  "rules": [
+    ["area comment","^/\\*([^*]|\\*(?!/))*\\*/$"],
+    ["area comment continue","^/\\*([^*]|\\*(?!/))*\\*?$"],
+    ["line comment","^//[^\\n]*$"],
+    ["quote","^\"([^\"\\n]|\\\\\")*\"?$"],
+    ["char","^'(\\\\?[^'\\n]|\\\\')'?$"],
+    ["char continue","^'[^']*$"],
+    ["directive","^#(\\S*)$"],
+    ["open paren","^\\($"],
+    ["close paren","^\\)$"],
+    ["open square","^\\[$"],
+    ["close square","^\\]$"],
+    ["open curly","^{$"],
+    ["close curly","^}$"],
+    ["operator","^([-<>~!%^&*/+=?|.,:;]|->|<<|>>|\\*\\*|\\|\\||&&|--|\\+\\+|[-+*|&%/=]=)$"],
+    ["identifier","^([_A-Za-z]\\w*)$"],
+    ["number","^[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$"],
+    ["whitespace","^(\\s+)$"],
+    ["line continue","^\\\\\\n?$"]
+  ]
+}
