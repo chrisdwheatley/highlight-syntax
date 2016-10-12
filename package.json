@@ -15,7 +15,8 @@
     "highlight-bash-syntax": "^1.0.0",
     "highlight-javascript-syntax": "^1.0.3",
     "minimist": "^1.2.0",
-    "outpipe": "^1.1.1"
+    "outpipe": "^1.1.1",
+    "tokenizer-array": "^1.0.0"
   },
   "devDependencies": {
     "marked": "^0.3.6",

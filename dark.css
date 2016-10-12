@@ -1,0 +1,22 @@
+.kw0, .operator {
+  font-weight: bold;
+  color: yellow;
+}
+.kw1, .regex {
+  font-weight: bold;
+  color: lime;
+}
+.kw2, .open-square, .close-square, .open-curly, .close-curly,
+.area-comment, .area-comment-continue, .line-comment {
+  font-weight: bold;
+  color: cyan;
+}
+.number, .quote, .double-quote, .single-quote, .char,
+.template-string {
+  color: magenta;
+  font-weight: bold;
+}
+.directive, .shebang {
+  color: blue;
+  font-weight: bold;
+}

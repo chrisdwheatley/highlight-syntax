@@ -1,0 +1,21 @@
+.kw0, .operator {
+  font-weight: bold;
+  color: darkorange;
+}
+.kw1, .regex {
+  font-weight: bold;
+  color: red;
+}
+.kw2, .open-square, .close-square, .open-curly, .close-curly,
+.area-comment, .area-comment-continue, .line-comment {
+  font-weight: bold;
+  color: blue;
+}
+.number, .quote, .single-quote, .double-quote, .char {
+  color: darkred;
+  font-weight: bold;
+}
+.directive, .shebang {
+  color: purple;
+  font-weight: bold;
+}

@@ -1,0 +1,33 @@
+{
+  "kw0": ["break","case","continue","import","export","default","do","else",
+    "for","goto","if","return","switch","typeof","while","undefined","null",
+    "eval","self","window","try","catch","throw","new"],
+  "kw1":["Array","Boolean","Date","Error","EvalError","Function","Infinity",
+    "JSON","Math","NaN","Number","Object","RangeError","ReferenceError",
+    "RegExp","String","SyntaxError","TypeError","URIError","ArrayBuffer",
+    "Buffer","DataView","Float32Array","Float64Array","Int16Array",
+    "Int32Array","Int8Array","Intl","Map","Promise","Proxy","Reflect","Set",
+    "Symbol","Uint16Array","Uint32Array","Uint8Array","Uint8ClampedArray",
+    "WeakMap","WeakSet"],
+  "kw2":["function","var"],
+  "rules": [
+    ["area comment","^/\\*([^*]|\\*(?!/))*\\*/$"],
+    ["area comment continue","^/\\*([^*]|\\*(?!/))*\\*?$"],
+    ["line comment","^//[^\\n]*$"],
+    ["template string","^`([^`$]|\\\\`|\\$\\{.*\\}?|\\$[^{])*`?$"],
+    ["double quote","^\"([^\"\\n]|\\\\\")*\"?$"],
+    ["single quote","^'([^'\\n]|\\\\')*'?$"],
+    ["directive","^#(\\S*)$"],
+    ["open paren","^\\($"],
+    ["close paren","^\\)$"],
+    ["open square","^\\[$"],
+    ["close square","^\\]$"],
+    ["open curly","^{$"],
+    ["close curly","^}$"],
+    ["operator","^([-<>~!%^&*/+=?|.,:;]|->|<<|>>|\\*\\*|\\|\\||&&|--|\\+\\+|[-+*|&%/=]=)$"],
+    ["identifier","^([_A-Za-z]\\w*)$"],
+    ["number","^[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?$"],
+    ["whitespace","^(\\s+)$"],
+    ["line continue","^\\\\\\n?$"]
+  ]
+}

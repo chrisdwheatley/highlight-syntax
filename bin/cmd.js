@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 var highlight = require('../')
-var style = require('../style.js')
 var concat = require('concat-stream')
-var normalize = require('../normalize-lang.js')
+var normalize = require('../lib/normalize.js')
 var fs = require('fs')
 var path = require('path')
 var minimist = require('minimist')
@@ -39,7 +38,8 @@ if (argv.outfile === '-') {
 }
 
 if (argv.theme) {
-  style({ langs: langs, theme: argv.theme }, function (err, css) {
+  var file = path.join(__dirname, '..', argv.theme + '.css')
+  fs.readFile(file, function (err, css) {
     if (err) return exit(err)
     output.write('<style>\n'+css+'\n</style>\n')
     next(0)
