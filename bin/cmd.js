@@ -34,6 +34,9 @@ if (inputs.length === 0) {
 var output = argv.outfile === '-'
   ? process.stdout
   : fs.createWriteStream(argv.outfile)
+if (argv.outfile === '-') {
+  process.stdout.on('error', function () {})
+}
 
 if (argv.theme) {
   style({ langs: langs, theme: argv.theme }, function (err, css) {
