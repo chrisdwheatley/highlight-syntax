@@ -38,6 +38,7 @@ console.log(marked(src, { highlight: highlight }))
 
 ``` js
 var highlight = require('highlight-syntax')
+var style = require('highlight-syntax/style')
 var js = require('highlight-syntax/js')
 var sh = require('highlight-syntax/sh')
 ```
@@ -60,13 +61,17 @@ string of html. If `opts` is a string, it is interpreted as the `opts.lang`.
 * `opts.throw` - when `true`, throw on syntax errors. Otherwise return an
 un-highlighted but escaped code string.
 
+## var css = style(opts, cb)
+
+Concatenate a string of css in `cb(err, css)` for:
+
+* `opts.theme` - default: light
+* `opts.langs` - array of languages. default: `['js','sh']`
+
 ## var html = js(src)
-
-Turn a string of javascript code `src` to a syntax-highlighted string of html.
-
 ## var html = sh(src)
 
-Turn a string of shell code `src` to a syntax-highlighted string of html.
+Turn a `src` string written in a language to html.
 
 # usage
 

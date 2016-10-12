@@ -1,19 +1,16 @@
 var highlight = require('../')
-var normalize = require('../normalize-lang')
-
+var styles = require('../style')
 var marked = require('marked')
 var fs = require('fs')
-var path = require('path')
-var src = fs.readFileSync(path.join(__dirname,'../readme.md'),'utf8')
+var src = fs.readFileSync(__dirname+'/../readme.md','utf8')
 
-var theme = 'light', css = []
+var langs = []
 var html = marked(src, { highlight: onhighlight })
-console.log('<style>'+css.join('\n')+'</style>'+html)
+styles({ theme: 'light', langs: langs }, function (err, css) {
+  console.log('<style>' + css + '</style>' + html)
+})
 
 function onhighlight (src, lang) {
-  try {
-    var file = require.resolve(path.join('..',lang,theme+'.css'))
-    css.push(fs.readFileSync(file,'utf8'))
-  } catch (err) {}
+  langs.push(lang)
   return highlight(src, lang)
 }
