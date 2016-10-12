@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var highlight = require('../')
+var highlight = require('../all.js')
 var concat = require('concat-stream')
 var normalize = require('../lib/normalize.js')
 var fs = require('fs')

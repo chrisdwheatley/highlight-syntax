@@ -1,4 +1,4 @@
-var highlight = require('../')
+var highlight = require('../')(require('../all'))
 var marked = require('marked')
 var fs = require('fs')
 var src = fs.readFileSync(__dirname+'/../readme.md','utf8')
