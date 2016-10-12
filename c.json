@@ -1,4 +1,5 @@
 {
+  "match": "^c$",
   "kw0": ["asm","auto","break","case","continue","default","do","else",
     "for","goto","if","return","sizeof","switch","typeof","while"],
   "kw1":["char","const","double","enum","extern","float","inline","int","long",

@@ -1,7 +1,7 @@
 var tokenize = require('tokenizer-array')
 var rules = {
-  c: require('./rules/c.json'),
-  js: require('./rules/js.json')
+  c: require('./c.json'),
+  js: require('./js.json')
 }
 var rrules = {}
 

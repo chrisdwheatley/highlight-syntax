@@ -1,4 +1,5 @@
 {
+  "match": "^(js|javascript)$",
   "kw0": ["break","case","continue","import","export","default","do","else",
     "for","goto","if","return","switch","typeof","while","undefined","null",
     "eval","self","window","try","catch","throw","new"],
@@ -15,7 +16,7 @@
     ["area comment continue","^/\\*([^*]|\\*(?!/))*\\*?$"],
     ["line comment","^//[^\\n]*$"],
     ["template string","^`([^`$]|\\\\`|\\$\\{([^}]|`[^`]*`)*\\}?|\\$([^{]|$))*`?$"],
-    ["regex","^/([^/]|\\/)*/[a-z]*$"],
+    ["regex","^/([^/]|\\\\/)*/[a-z]*$"],
     ["double quote","^\"([^\"\\n]|\\\\\")*\"?$"],
     ["single quote","^'([^'\\n]|\\\\')*'?$"],
     ["directive","^#(\\S*)$"],
