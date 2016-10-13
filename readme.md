@@ -2,8 +2,20 @@
 
 highlight source code syntax with html
 
-* [javascript](https://npmjs.com/package/highlight-javascript-syntax)
-* [bash](https://npmjs.com/package/highlight-bash-syntax)
+Works in node and the browser. Supported languages:
+
+* javascript
+* bash
+* c
+
+Very small:
+
+``` sh
+$ browserify . | uglifyjs -cm 2>/dev/null | gzip | wc -c
+1776
+$ browserify all.js | uglifyjs -cm 2>/dev/null | gzip | wc -c
+3391
+```
 
 # example
 
@@ -13,8 +25,26 @@ highlight source code syntax with html
 [1]: https://substack.neocities.org/highlight-syntax/dark.html
 [2]: https://substack.neocities.org/highlight-syntax/light.html
 
+## all languages
+
+You can load all the languages:
+
 ``` js
-var highlight = require('highlight-syntax')
+var highlight = require('highlight-syntax/all')
+var fs = require('fs')
+var src = fs.readFileSync(process.argv[3],'utf8')
+console.log(highlight(src, { lang: process.argv[2] }))
+```
+
+## subset of languages
+
+Or you can load a subset of languages. This will make the bundle you deliver to
+the browser smaller.
+
+``` js
+var highlight = require('highlight-syntax')([
+  require('highlight-syntax/c'), require('highlight-syntax/sh')
+])
 var fs = require('fs')
 var src = fs.readFileSync(process.argv[3],'utf8')
 console.log(highlight(src, { lang: process.argv[2] }))
@@ -37,20 +67,23 @@ console.log(marked(src, { highlight: highlight }))
 # api
 
 ``` js
-var highlight = require('highlight-syntax')
-var style = require('highlight-syntax/style')
-var js = require('highlight-syntax/js')
-var sh = require('highlight-syntax/sh')
+var highlighter = require('highlight-syntax')
+var highlight = require('highlight-syntax/all')
 ```
 
 The css files in this distribution are:
 
 * highlight-syntax/dark.css - combined dark themes for all languages
 * highlight-syntax/light.css - combined linght themes for all languages
-* highlight-syntax/js/dark.css - javascript dark theme
-* highlight-syntax/js/light.css - javascript light theme
-* highlight-syntax/sh/dark.css - bash dark theme
-* highlight-syntax/sh/light.css - bash light theme
+
+## var highlight = highlighter(rules)
+
+Create a highlighter function from an array of `rules`. You can load the rules
+explicitly from:
+
+* `require('highlight-syntax/c')` - c
+* `require('highlight-syntax/sh')` - bash
+* `require('highlight-syntax/js')` - javascript
 
 ## var html = highlight(src, opts)
 
@@ -58,20 +91,6 @@ Turn a string of code `src` written in `opts.lang` to a syntax-highlighted
 string of html. If `opts` is a string, it is interpreted as the `opts.lang`.
 
 * `opts.lang` - string language name or file extension
-* `opts.throw` - when `true`, throw on syntax errors. Otherwise return an
-un-highlighted but escaped code string.
-
-## var css = style(opts, cb)
-
-Concatenate a string of css in `cb(err, css)` for:
-
-* `opts.theme` - default: light
-* `opts.langs` - array of languages. default: `['js','sh']`
-
-## var html = js(src)
-## var html = sh(src)
-
-Turn a `src` string written in a language to html.
 
 # usage
 

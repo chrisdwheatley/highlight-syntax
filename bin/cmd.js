@@ -52,8 +52,7 @@ function next (i) {
     return
   }
   inputs[i].pipe(concat({ encoding: 'string' }, function (src) {
-    output.write('<pre class="'+langs[i]+'">'
-      + highlight(src, { lang: langs[i] }) + '</pre>\n')
+    output.write('<pre>' + highlight(src, { lang: langs[i] }) + '</pre>\n')
     next(i+1)
   }))
 }
