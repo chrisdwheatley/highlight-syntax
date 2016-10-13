@@ -1,7 +1,7 @@
 var tokenize = require('tokenizer-array')
 
 module.exports = function (rules) {
-  var rrules = {}
+  var rrules = {}, rmatches = {}
   var matches = rules.map(function (r) { return RegExp(r.match) })
   return function (src, opts) {
     if (typeof opts === 'string') opts = { lang: opts }
@@ -30,6 +30,7 @@ module.exports = function (rules) {
     }).join('')
   }
   function getRule (lang) {
+    if (rmatches[lang]) return rmatches[lang]
     for (var i = 0; i < matches.length; i++) {
       if (matches[i].test(lang)) return i
     }

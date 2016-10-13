@@ -11,7 +11,8 @@
   font-weight: bold;
   color: blue;
 }
-.number, .quote, .single-quote, .double-quote, .char {
+.number, .quote, .single-quote, .double-quote, .char,
+.template-string {
   color: darkred;
   font-weight: bold;
 }
