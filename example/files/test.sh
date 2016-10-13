@@ -25,3 +25,9 @@ wow cool eof whatever <> lalala
 eof
 
 ls /dev
+
+(highlight-syntax -t light test.js; echo '<hr>'
+  highlight-syntax -t light test.sh; echo '<hr>'
+  highlight-syntax -t light main.c) > /tmp/light.html
+
+(echo cool)
