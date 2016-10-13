@@ -2,13 +2,12 @@
   font-weight: bold;
   color: darkorange;
 }
-.kw1, .regex, .command-substitution {
+.kw1, .regex, .command-substitution, .template-expr {
   font-weight: bold;
   color: red;
 }
 .kw2, .open-square, .close-square, .open-curly, .close-curly,
-.area-comment, .area-comment-continue, .line-comment,
-.variable {
+.area-comment, .area-comment-continue, .line-comment {
   font-weight: bold;
   color: blue;
 }
@@ -17,7 +16,7 @@
   color: darkred;
   font-weight: bold;
 }
-.directive, .shebang {
+.directive, .shebang, .variable {
   color: purple;
   font-weight: bold;
 }

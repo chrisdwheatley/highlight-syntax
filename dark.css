@@ -2,7 +2,7 @@
   font-weight: bold;
   color: yellow;
 }
-.kw1, .regex {
+.kw1, .regex, .command-substitution, .template-expr {
   font-weight: bold;
   color: lime;
 }
