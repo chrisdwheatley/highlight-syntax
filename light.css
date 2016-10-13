@@ -12,7 +12,7 @@
   color: blue;
 }
 .number, .quote, .single-quote, .double-quote, .char,
-.template-string {
+.template-string, .heredoc {
   color: darkred;
   font-weight: bold;
 }

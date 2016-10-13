@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 var highlight = require('../all.js')
 var concat = require('concat-stream')
-var normalize = require('../lib/normalize.js')
 var fs = require('fs')
 var path = require('path')
 var minimist = require('minimist')
@@ -23,7 +22,7 @@ var inputs = infiles.map(function (x) {
   return x === '-' ? process.stdin : fs.createReadStream(x)
 })
 var langs = infiles.map(function (x) {
-  var ext = normalize(path.extname(x))
+  var ext = path.extname(x).replace(/^\./,'')
   return ext === '' ? 'sh' : ext
 })
 if (inputs.length === 0) {

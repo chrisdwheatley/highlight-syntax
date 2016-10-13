@@ -1,0 +1,27 @@
+{
+  "name": "sh",
+  "match": "^(ba)?sh$",
+  "kw0":["alias","bg","bind","break","builtin","caller","cd","command",
+    "compgen","complete","compopt","continue","declare","typeset","dirs",
+    "disown","echo","enable","eval","exec","exit","export","fc","fg","getopts",
+    "hash","help","history","jobs","kill","let","local","logout","mapfile",
+    "readarray","popd","printf","pushd","pwd","read","readonly","return","set",
+    "shift","shopt","source","suspend","test","[","]","times","trap","type",
+    "ulimit","umask","unalias","unset","wait","."],
+  "kw1":["ls","sed","grep"],
+  "rules": [
+    ["shebang","^(#![^\\n]*)$"],
+    ["line comment","^#[^\\n]*$"],
+    ["whitespace","^(\\s+)$"],
+    ["set var","^(export\\s+)?\\w+=.*$"],
+    ["command","^(?:[^\\n'\"]|\\\\\n|'[^']*(?:'|$)|\"(?:[^\"]|\\\\\")*(?:\"|$)|<<(\\S*)(?:.|\\n(?!\\1))*(?:\\n\\1)?)*$",[
+      ["identifier","^[^'\"\\s]+$"],
+      ["single quote","^'[^']*'?$"],
+      ["double quote","^\"([^\"]|\\\\\")*\"?$"],
+      ["heredoc","^<<(\\S*)(?:.|\\n(?!\\1))*(?:\\n\\1)?$"],
+      ["operator","^([<|&;!\\[\\]]|>>?|\\|\\||&&)$"],
+      ["whitespace","^(\\s+)$"],
+      ["line continue","^\\\\\\n?$"]
+    ]]
+  ]
+}

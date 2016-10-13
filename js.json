@@ -1,4 +1,5 @@
 {
+  "name": "js",
   "match": "^(js|javascript)$",
   "kw0": ["break","case","continue","import","export","default","do","else",
     "for","goto","if","return","switch","typeof","while","undefined","null",
@@ -30,6 +31,7 @@
     ["identifier","^([_A-Za-z]\\w*)$"],
     ["number","^(\\d*\\.?\\d+([eE][-+]?\\d*)?|0x\\d+)$"],
     ["whitespace","^(\\s+)$"],
-    ["line continue","^\\\\\\n?$"]
+    ["line continue","^\\\\\\n?$"],
+    ["shebang","^(#![^\\n]*)$"]
   ]
 }
