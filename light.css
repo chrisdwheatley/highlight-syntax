@@ -2,12 +2,13 @@
   font-weight: bold;
   color: darkorange;
 }
-.kw1, .regex {
+.kw1, .regex, .command-substitution {
   font-weight: bold;
   color: red;
 }
 .kw2, .open-square, .close-square, .open-curly, .close-curly,
-.area-comment, .area-comment-continue, .line-comment {
+.area-comment, .area-comment-continue, .line-comment,
+.variable {
   font-weight: bold;
   color: blue;
 }

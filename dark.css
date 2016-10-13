@@ -16,7 +16,7 @@
   color: magenta;
   font-weight: bold;
 }
-.directive, .shebang {
+.directive, .shebang, .variable {
   color: blue;
   font-weight: bold;
 }

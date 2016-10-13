@@ -14,28 +14,28 @@ module.exports = function (rules) {
         return {
           type: x[0],
           regex: RegExp(x[1]),
-          children: x[2] ? x[2].map(f) : null
+          children: x[2] ? x[2].map(g) : null
         }
+        function g (x) { return x.map(f) }
       })
     }
     var kw0 = {}, kw1 = {}, kw2 = {}
     ;(r.kw0 || []).forEach(function (key) { kw0[key] = true })
     ;(r.kw1 || []).forEach(function (key) { kw1[key] = true })
     ;(r.kw2 || []).forEach(function (key) { kw2[key] = true })
-    return '<span class="' + r.name + '">' + (function f (src, rr) {
-      var tokens = tokenize(src, rr)
-      return tokens.map(function f (t) {
-        var c = xclass(t.type)
-        if (t.type === 'identifier') {
-          if (kw0[t.source]) c += ' kw0 kw-' + xclass(t.source)
-          else if (kw1[t.source]) c += ' kw1 kw-' + xclass(t.source)
-          else if (kw2[t.source]) c += ' kw2 kw-' + xclass(t.source)
-        }
-        return '<span class="' + c + '">'
-          + (t.children ? t.children.map(f).join('') : esc(t.source))
-          + '</span>'
-      }).join('')
-    })(src, rrules[ri]) + '</span>'
+    var tokens = tokenize(src, rrules[ri])
+    return '<span class="' + r.name + '">' + tokens.map(function f (t) {
+      var c = xclass(t.type)
+      if (t.type === 'identifier') {
+        if (kw0[t.source]) c += ' kw0 kw-' + xclass(t.source)
+        else if (kw1[t.source]) c += ' kw1 kw-' + xclass(t.source)
+        else if (kw2[t.source]) c += ' kw2 kw-' + xclass(t.source)
+      }
+      return '<span class="' + c + '">'
+        + (t.children ? t.children.map(g).join('') : esc(t.source))
+        + '</span>'
+      function g (x) { return x.map(f).join('') }
+    }).join('') + '</span>'
   }
   function getRule (lang) {
     if (rmatches[lang]) return rmatches[lang]
